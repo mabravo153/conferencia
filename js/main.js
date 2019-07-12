@@ -335,19 +335,32 @@ $(function() {
 
         let scrollD = window.pageYOffset;
         let altoVentana = document.documentElement.clientHeight;
-
+        let altoBarra = $('.barra').innerHeight();
+        
         if (scrollD > altoVentana) {
             $('.barra').addClass('fixed');
+            $('body').css({'margin-top': altoBarra + 'px'})
         } else {
             $('.barra').removeClass('fixed');
+            $('body').css({'margin-top': '0px'})
         }
 
-        //de esta manera le agregamos la clase fixed a la barra de navegacion
+        //de esta manera le agregamos la clase fixed a la barra de navegacion, pero tenemos un problema, cuando se pone fixed la barra
+        //el tamaño de la misma, se quita del documento, por eso es necesario agregar margen al documento cuando esto ocurre
 
     })
 
 
-   
+   //despleguar barra de navegacion
+
+   $('.menu-movil').click(function() {
+        
+      if ($('.barra-navegacion').is(':hidden')) {
+          $('.barra-navegacion').slideDown(1200)
+      } else {
+        $('.barra-navegacion').slideUp(1200)
+      } 
+   })
      
 
 });//DOMCOntentLoaded jquery
