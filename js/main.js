@@ -273,37 +273,48 @@ $(function() {
 
     //animaciones para los numeros 
 
-    $('#numeroUno').animateNumber({
-        number: 6
-    },
-        {
-            easing: 'swing',
-            duration: 1200
-        });
+    if ($('#numeroUno')) {
+        $('#numeroUno').animateNumber({
+            number: 6
+        },
+            { 
+                easing: 'swing',
+                duration: 1200
+            }); 
+    }
+   
+    if ($('#numeroDos')) {
+        $('#numeroDos').animateNumber({
+            number: 15
+        },
+            {
+                easing: 'swing',
+                duration: 1200
+            }); 
+    }
 
-    $('#numeroDos').animateNumber({
-        number: 15
-    },
-        {
-            easing: 'swing',
-            duration: 1200
-        });
 
-    $('#numeroTres').animateNumber({
-        number: 3
-    },
-        {
-            easing: 'swing',
-            duration: 1200
-        });
+     if ($('#numeroTres')) {
+        $('#numeroTres').animateNumber({
+            number: 3
+        },
+            {
+                easing: 'swing',
+                duration: 1200
+            }); 
+        }
 
-    $('#numeroCuatro').animateNumber({
-        number: 9
-    },
-        {
-            easing: 'swing',
-            duration: 1200
-        });
+    if ($('#numeroCuatro')) {
+        $('#numeroCuatro').animateNumber({
+            number: 9
+        },
+            {
+                easing: 'swing',
+                duration: 1200
+            });
+    }
+
+    
   
 
    

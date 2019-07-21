@@ -1,71 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald|PT+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
-
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
-
-  <meta name="theme-color" content="#fafafa">
-  <title>Reservaciones</title>
-</head>
-
-<body>
-  <header class="site-header">
-    <div class="hero">
-      <div class="contenido-header container">
-        <nav class="redes-sociales">
-          <a href=""><i class="fab fa-facebook-f"></i></a>
-          <a href=""><i class="fab fa-twitter"></i></a>
-          <a href=""><i class="fab fa-pinterest-p"></i></a>
-          <a href=""><i class="fab fa-youtube"></i></a>
-          <a href=""><i class="fab fa-instagram"></i></a>
-        </nav>
-        <div class="informacion-evento">
-          <p class="fecha"><i class="far fa-calendar-alt"></i> 21/05/2019</p>
-          <p class="lugar"><i class="fas fa-map-marker-alt"></i> Barranquilla, CO </p>
-        </div>
-        <h1 class="title-evento centrar-texto">GdlWebCamp</h1>
-        <p class="eslogan centrar-texto">La mejor conferencia de desarrollo web del mundo!</p>
-      </div>
-    </div>
-  </header>
-  <!--header-->
-
-  <div class="barra">
-    <div class="container contenido-barra">
-      <div class="logo">
-        <a href="index.html"><img src="img/logo.svg" alt="logo"></a> 
-      </div>
-
-      <div class="menu-movil">
-        <span></span>
-        <span></span>
-        <span></span>
-
-      </div>
-
-      <nav class="barra-navegacion">
-        <a href="conferencia.html">Conferencia</a>
-        <a href="calendario.html">Calendario</a>
-        <a href="invitados.html">Invitados</a>
-        <a href="reservas.html" class="reservaciones">reservaciones</a>
-      </nav>
-    </div>
-  </div>
-  <!--Barra navegacion-->
-
+<?php include_once "php/templates/header.php" ?>
 <section class="container seccion">
 
     <h2 class="centrar-texto section-h2">Registro de Usuarios</h2>
@@ -259,52 +192,7 @@
 
       </div>
     </div>  
-    
-    
-
-    </form>
+  </form>
 
   </section>
-
-  <footer class="site-footer">
-    <div class="contenedor-footer container">
-      <div class="contenido-footer">
-        <h3 class="centrar-texto">SOBRE <SPan>GDLWECAMP</SPan></h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et fugit ad velit voluptatem illo, consequuntur
-          numquam adipisci molestiae. Ut voluptatum blanditiis nisi, nam culpa saepe pariatur deleniti velit porro
-          aliquid.</p>
-      </div>
-      <div class="contenido-footer">
-        <h3 class="centrar-texto">ULTIMOS <SPan>TWEETS</SPan></h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et fugit ad velit voluptatem illo, consequuntur
-          numquam adipisci molestiae. Ut voluptatum blanditiis nisi, nam culpa saepe pariatur deleniti velit porro
-          aliquid.</p>
-      </div>
-      <div class="contenido-footer">
-        <h3 class="centrar-texto">REDES <SPan>SOCIALES</SPan></h3>
-        <nav class="redes-sociales">
-          <a href=""><i class="fab fa-facebook-f"></i></a>
-          <a href=""><i class="fab fa-twitter"></i></a>
-          <a href=""><i class="fab fa-pinterest-p"></i></a>
-          <a href=""><i class="fab fa-youtube"></i></a>
-          <a href=""><i class="fab fa-instagram"></i></a>
-        </nav>
-      </div>
-    </div>
-  </footer>
-  <!--footer-->
-
-  <div class="derechos-reservados">
-    <p class="centrar-texto container">&copy; TODOS LOS DERECHOS RESERVADOS, MIGUEL BRAVO 2019</p>
-  </div>
-  <!--derechos de autor-->
-
-  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
-</body>
-
-</html>
+  <?php include_once 'php/templates/footer.php' ?>
