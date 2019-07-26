@@ -335,11 +335,14 @@ $(function() {
 
     //plugin galeria 
 
+    lightbox.option({
+        'resizeDuration': 200,
+        'wrapAround': true,
+        'alwaysShowNavOnTouchDevices': true
+      })
 
 
     //detectando el scroll
-
-    
 
     
     $(window).scroll(function () {
@@ -377,6 +380,15 @@ $(function() {
    //ventana modal con descripcion del invitado 
 
    $('.invitado-info').colorbox({inline:true, width: "70%" })
+
+
+   //indicar en que pagina estamos 
+
+   $('body.conferencia .barra-navegacion a:contains("Conferencia")').addClass('menu-seleccionado');
+
+
+
+
 
 });//DOMCOntentLoaded jquery
 

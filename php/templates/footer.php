@@ -33,21 +33,21 @@
   <script src="js/jquery.animateNumber.js"></script>
   <script src="js/jquery.lettering-0.6.1.min.js"></script>
 
-
   <?php
 
     $archivo = basename($_SERVER['PHP_SELF']);
     $pagina = str_replace(".php", "", $archivo); 
-    if($pagina == 'confenrencia'){
-      echo '<script src="js/jquery.lettering-0.6.1.min.js"></script>' ;
+    if($pagina == 'conferencia'){
+      echo '<script src="js/lightbox.js"></script>' ;
     }elseif ($pagina == 'invitados') {
+      echo '<script src="js/jquery.colorbox.js"></script>';
+    }
+    elseif ($pagina == 'index') {
       echo '<script src="js/jquery.colorbox.js"></script>';
     }
 
   ?> 
 
-
-  
   <script src="js/jquery.countdown.min.js"></script>
   <script src="js/main.js"></script>
  

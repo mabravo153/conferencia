@@ -14,27 +14,35 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
   <!-- Place favicon.ico in the root directory -->
 
-  <link rel="stylesheet" href="css/normalize.css">
-  
-  <link rel="stylesheet" href="css/main.css">
 
   <?php
 
 $archivo = basename($_SERVER['PHP_SELF']);
 $pagina = str_replace(".php", "", $archivo); 
-if($pagina == 'confenrencia'){
-  echo '<link rel="stylesheet" href="css/lightbox.css">' ;
+if($pagina == 'conferencia'){
+
+  echo '<link rel="stylesheet" href="css/lightbox.css">';
+
 }elseif ($pagina == 'invitados') {
+
   echo ' <link rel="stylesheet" href="css/colorbox.css">';
+
+}
+elseif ($pagina == 'index') {
+
+  echo ' <link rel="stylesheet" href="css/colorbox.css">';
+  
 }
 
 ?> 
 
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
 
   <meta name="theme-color" content="#fafafa">
 </head>
 
-<body>
+<body class="<?php echo $pagina?>">
 
   <header class="site-header">
     <div class="hero">
@@ -70,10 +78,10 @@ if($pagina == 'confenrencia'){
       </div>
 
       <nav class="barra-navegacion">
-        <a href="conferencia.php">Conferencia</a>
-        <a href="calendario.php">Calendario</a>
-        <a href="invitados.php">Invitados</a>
-        <a href="reservas.php" class="reservaciones">reservaciones</a>
+        <a href="conferencia.php" id="conferencia">Conferencia</a>
+        <a href="calendario.php" id="calendario">Calendario</a>
+        <a href="invitados.php" id="invitados">Invitados</a>
+        <a href="reservas.php" class="reservaciones" id="reservas">reservaciones</a>
       </nav>
     </div>
   </div>

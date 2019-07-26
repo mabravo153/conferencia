@@ -282,7 +282,7 @@ img{
     z-index: 3;
 }
 
-/*esta es la calse que añadiremos para poner la barra de navegacion estatica */ 
+/*esta es la clase que añadiremos para poner la barra de navegacion estatica */ 
 
 .barra-navegacion{
      display: none;
@@ -394,10 +394,7 @@ img{
 }
 
 .menu-seleccionado{
-    border-top:  0.1rem solid #fe4918;
-    border-left: 0.1rem solid #fe4918;
-    border-right:  0.1rem solid #fe4918;
-    border-bottom: 0
+    border-bottom: 0.1rem solid #fe4918;
 }
 
 .programa{

@@ -88,37 +88,8 @@
   </section>
   <!--contenido programas-->
 
-  <section class="container seccion">
-    <h3 class="centrar-texto section-h2">Nuestros Invitados</h3>
+  <?php include_once 'php/templates/invitado.php' ?> 
 
-    <div class="contenedor-invitados">
-      <div class="invitado">
-        <img src="img/invitado1.jpg" alt="invitado1">
-        <p>RAFAEL BAUTISTA</p>
-      </div>
-      <div class="invitado">
-        <img src="img/invitado2.jpg" alt="invitado2">
-        <p>SHARI HERRERA</p>
-      </div>
-      <div class="invitado">
-        <img src="img/invitado3.jpg" alt="invitado3">
-        <p>GREGORIO SANCHEZ</p>
-      </div>
-      <div class="invitado">
-        <img src="img/invitado4.jpg" alt="invitado4">
-        <p>SUSANA RIVERA</p>
-      </div>
-      <div class="invitado">
-        <img src="img/invitado5.jpg" alt="invitado5">
-        <p>HAROLD GARCIA</p>
-      </div>
-      <div class="invitado">
-        <img src="img/invitado6.jpg" alt="invitado6">
-        <p>SUSAN SANCHES</p>
-      </div>
-    </div>
-
-  </section>
   <!--invitados-->
 
   <div class="contador parallax">

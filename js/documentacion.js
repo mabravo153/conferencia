@@ -1745,7 +1745,11 @@ o lo podemos hacer de esta forma
   de esta manera hacemos que al hacer hover sobre la imagen, esta crezca 5px mas de su tamaño, tambien agregamos a la animacion, una funcion que haga que esta 
   retorne a su tamaño normal  
 
+ AGREGAR UNA CLASE A UN BOTON DE NAVEGACION EN UNA PAGINA SELECCIONADA 
 
+  $('body.conferencia .barra-navegacion a:contains("Conferencia")').addClass('menu-seleccionado');
+
+  de esta manera le agregamos una clase a un boton del menu que haya sido seleccionado en la pagina 
 
 
   slideup y slidedown
@@ -3295,7 +3299,14 @@ si tenemos guardado un icono en la base de datos, podemos agregar toda la clase 
 
   ?>  
 
-  con este metodo podemos mostrar los scripts especificos que queremos que se muestre, esto evitara que nos cause un error 
+con este metodo podemos mostrar los scripts y hojas de estilos que queremos que se muestre, esto evitara que nos cause un error al ejecutar los scripts 
+
+en este ejemplo estamos mostrando los scripts dependiendo de la pagina que estemos y esto nos ayuda a no sobrecargar con archivos que no necesitamos 
+
+podemos hacer un template de algo especifico con el fin de poder usarlo en otras paginas del sitio. esto es muy funcional para poder reutilizar el codigo 
+
+
+
 
 
 */
