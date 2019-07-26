@@ -15,7 +15,21 @@
   <!-- Place favicon.ico in the root directory -->
 
   <link rel="stylesheet" href="css/normalize.css">
+  
   <link rel="stylesheet" href="css/main.css">
+
+  <?php
+
+$archivo = basename($_SERVER['PHP_SELF']);
+$pagina = str_replace(".php", "", $archivo); 
+if($pagina == 'confenrencia'){
+  echo '<link rel="stylesheet" href="css/lightbox.css">' ;
+}elseif ($pagina == 'invitados') {
+  echo ' <link rel="stylesheet" href="css/colorbox.css">';
+}
+
+?> 
+
 
   <meta name="theme-color" content="#fafafa">
 </head>

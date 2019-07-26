@@ -374,6 +374,10 @@ $(function() {
    })
      
 
+   //ventana modal con descripcion del invitado 
+
+   $('.invitado-info').colorbox({inline:true, width: "70%" })
+
 });//DOMCOntentLoaded jquery
 
 
