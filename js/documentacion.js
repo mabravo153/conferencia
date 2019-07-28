@@ -1752,6 +1752,31 @@ o lo podemos hacer de esta forma
   de esta manera le agregamos una clase a un boton del menu que haya sido seleccionado en la pagina 
 
 
+  DETECTANDO CUANDO UN ELEMENTO ES VISIBLE PARA AGREGAR FUNCIONALIDAD 
+  
+  esto lo hacemos con el fin de identificiar cuando un elemento esta a la vista y asi poder presentarlo y que se realice la animacion 
+  podemos usar plugin de jquery llamado waypoints
+
+
+   let numero4 = new Waypoint({
+
+        element: $('#numeroCuatro'),
+        handler: function (){
+            $('#numeroCuatro').animateNumber({
+                number: 9
+            },
+                {
+                    easing: 'swing',
+                    duration: 1200
+                });
+        },
+        offset: '80%'
+
+      })
+
+este es un ejemplo de lo que podemos hacer con este plugin. en este caso activamos la animacion de los numeros al 80% de la pantalla 
+
+
   slideup y slidedown
 
    $('main article img').on('mouseover', agrandarImagem);
@@ -1981,6 +2006,10 @@ return false;
      
    con is(':hidden) podemos validar si el elemento esta oculto o no. en este caso. al estar el menu oculto, desplegamos el menu, luego si no esta oculto
    lo recogemos
+
+   podemos agregarle mas funcionalidad a nuestro sitio en la parte de las reservas, obligando al usuario a que solo puede pagar si ha dado previamente calcular 
+
+   botonRegistro.disabled = false; de esta manera hacemos que se habilite 
 
 */
 
@@ -3305,6 +3334,53 @@ en este ejemplo estamos mostrando los scripts dependiendo de la pagina que estem
 
 podemos hacer un template de algo especifico con el fin de poder usarlo en otras paginas del sitio. esto es muy funcional para poder reutilizar el codigo 
 
+
+RECUERDA QUE PARA QUE TE TRAIGA MAS DE UN RESULTADO DEBES AGREGARLO EN UN WHILE o USAR EL FETCHALL
+podemos hacer transacciones, esto nos ayudara a conservar la base de datos intacta y sin ningun problema 
+
+ <?php 
+            
+            include_once 'php/funtions/bd_con.php';
+
+            try {
+
+              $pdo->beginTransaction(); //inicia la transaccion 
+              $consultaTaller = $pdo->prepare('SELECT nombreEventos, fechaEvento, horaEvento ,nombreInvitado, apellidoInvitado, idCategoria 
+                                          FROM evento INNER JOIN invitado ON evento.fk_idInvitado = invitado.idInvitado
+                                          INNER JOIN categoriaeventos ON evento.fk_idCategoria = categoriaeventos.idCategoria AND categoriaeventos.idCategoria = 1 
+                                          LIMIT 2');
+              $consultaTaller->execute();
+
+              $pdo->commit(); //en caso de completarse, cre un commit
+
+            } catch (\Exception $th) {
+              
+              $pdo->rollBack(); //esto hara que si no se completa. vuelva a sui estado inicial 
+              echo "¡ERROR!" . " " . $th->getMessage();
+
+            }
+
+            
+
+            $resultadoTaller = $consultaTaller->fetch(PDO::FETCH_ASSOC);
+
+            ?>
+          
+          
+para  manejar nuestro formulario y poder guardar el total del pedido, debemos crear un campo tipo hidden, luego le asignamos el valor de la variable para que este tenga un valor valido 
+para darle el valor debemos asignmarle e lvalor en js 
+
+
+CREAR UNA FUNCION QUE UNA UNOS CAMPOS Y COMBERTIRLOS A JSON 
+
+php maneja una funcion llamada json_encode. el cual convierte un array o string en formato json 
+dado que en el ejemplo el array nos retorna numeros en vez de llaves, para hacerlo mas entendible. usaremos un metodo para combinar el array que nos retorna el post 
+y uno ya hecho por nosotros. ahora haremos un ejemplo para entenderlo mejor. 
+
+array_combine — Crea un nuevo array, usando una matriz para las claves y otra para sus valores 
+este metodo lo que hace es crear un array array_combine($arrayuno = llaves, $arraydos= valores);
+
+siempre que trabajetemos con json_encode. debemos psarle un array por lo que es indispensable crearlo 
 
 
 

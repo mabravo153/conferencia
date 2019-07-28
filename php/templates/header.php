@@ -81,7 +81,7 @@ elseif ($pagina == 'index') {
         <a href="conferencia.php" id="conferencia">Conferencia</a>
         <a href="calendario.php" id="calendario">Calendario</a>
         <a href="invitados.php" id="invitados">Invitados</a>
-        <a href="reservas.php" class="reservaciones" id="reservas">reservaciones</a>
+        <a href="reservas.php" class="reservaciones" id="reservas">Reservaciones</a>
       </nav>
     </div>
   </div>

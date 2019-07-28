@@ -68,9 +68,12 @@ creamos
     //botones
     
     let botonRegistro = document.querySelector('#btnRegistro')
-    
+
+    botonRegistro.disabled =true ; 
 
     //pago y extras 
+
+     
 
     const valorCamisa = 10 ;
     const valorEtiquetas = 2;    
@@ -156,7 +159,7 @@ creamos
             let totalCamisa = subtotalCamisa - (subtotalCamisa * 0.07);
 
             let totalEtiqueta = etiquetaEvento.value * valorEtiquetas;
-
+            let oculto = document.querySelector('#totalPagado');
 
             let paseTotalDia = campoDia.value * paseDia;
             let paseTotalCompleto = campoCompleto.value * paseCompleto;
@@ -172,8 +175,9 @@ creamos
                 let totalReserva = paseTotalCompleto + paseTotalDia + paseTotalDos + totalCamisa + totalEtiqueta;
 
                 sumaTotal.innerHTML = `$ ${totalReserva.toFixed(2)}`;
+                oculto.value = totalReserva;
             }
-        
+           
         
            let resumenProductos = [];
 
@@ -208,9 +212,12 @@ creamos
                     regalo.focus();
                 }
             })
-        //si no le agregamos el += solo nos imprimira un solo elemento, ademas debemos inicializar listaProductos.innerHTML = ''; 
+            //si no le agregamos el += solo nos imprimira un solo elemento, ademas debemos inicializar listaProductos.innerHTML = ''; 
         // vacio, ya que si no lo hacemos de esta manera, se sobre escribira el array
 
+        botonRegistro.disabled = false;
+        
+          
     }
 
      // mostrar contenido
@@ -272,53 +279,83 @@ $(function() {
 
 
     //animaciones para los numeros 
+    //mostrar la animacion del contenido cuando este se presente
 
-    if ($('#numeroUno')) {
-        $('#numeroUno').animateNumber({
-            number: 6
+
+    let animacion = $('.contenedor-contador');
+    if(animacion.length > 0){
+
+      let numero1 = new Waypoint({
+
+        element: $('#numeroUno'),
+        handler: function (){
+            $('#numeroUno').animateNumber({
+                number: 6
+            },
+                { 
+                    easing: 'swing',
+                    duration: 1200
+                });
         },
-            { 
-                easing: 'swing',
-                duration: 1200
-            }); 
+        offset: '80%'
+
+      })      
+           
+      let numero2 = new Waypoint({
+
+        element: $('#numeroDos'),
+        handler: function (){
+            $('#numeroDos').animateNumber({
+                number: 15
+            },
+                {
+                    easing: 'swing',
+                    duration: 1200
+                }); 
+        },
+        offset: '80%'
+
+      })
+
+      let numero3 = new Waypoint({
+
+        element: $('#numeroTres'),
+        handler: function (){
+            $('#numeroTres').animateNumber({
+                number: 3
+            },
+                {
+                    easing: 'swing',
+                    duration: 1200
+                }); 
+        },
+        offset: '80%'
+
+      })
+          
+      let numero4 = new Waypoint({
+
+        element: $('#numeroCuatro'),
+        handler: function (){
+            $('#numeroCuatro').animateNumber({
+                number: 9
+            },
+                {
+                    easing: 'swing',
+                    duration: 1200
+                });
+        },
+        offset: '80%'
+
+      })
+          
+
     }
-   
-    if ($('#numeroDos')) {
-        $('#numeroDos').animateNumber({
-            number: 15
-        },
-            {
-                easing: 'swing',
-                duration: 1200
-            }); 
-    }
 
-
-     if ($('#numeroTres')) {
-        $('#numeroTres').animateNumber({
-            number: 3
-        },
-            {
-                easing: 'swing',
-                duration: 1200
-            }); 
-        }
-
-    if ($('#numeroCuatro')) {
-        $('#numeroCuatro').animateNumber({
-            number: 9
-        },
-            {
-                easing: 'swing',
-                duration: 1200
-            });
-    }
-
-    
-  
 
    
    //contenedor hora
+   //esta funcion nos permite agregar una cuenta regresiva
    
     $('.contenido-regresivo').countdown('2019/10/10 10:00:00', function (event) {
         $('#dias').html(event.strftime('%D')),
@@ -332,14 +369,6 @@ $(function() {
     //animar las letras
 
     $('.title-evento').lettering();
-
-    //plugin galeria 
-
-    lightbox.option({
-        'resizeDuration': 200,
-        'wrapAround': true,
-        'alwaysShowNavOnTouchDevices': true
-      })
 
 
     //detectando el scroll
@@ -379,15 +408,33 @@ $(function() {
 
    //ventana modal con descripcion del invitado 
 
-   $('.invitado-info').colorbox({inline:true, width: "70%" })
 
+   
+  //de esta confirmamos que la variable exista  y sea mayor que 0
+  let test = $('.invitado-info')
+   if(test.length > 0){
+     $('.invitado-info').colorbox({inline:true, width: "70%" })
+   }
+       
 
-   //indicar en que pagina estamos 
+   //indicar en que pagina estamos agregandole la clase seleccion
+
+   //lo hacemos de esta manera, ya que al usar un evento, al recargar, esto ocaciona que el evento pase y no se aplique la clase w
 
    $('body.conferencia .barra-navegacion a:contains("Conferencia")').addClass('menu-seleccionado');
+    $('body.calendario .barra-navegacion a:contains("Calendario")').addClass('menu-seleccionado');
+    $('body.invitados .barra-navegacion a:contains("Invitados")').addClass('menu-seleccionado');
+    $('body.reservas .barra-navegacion a:contains("Reservaciones")').addClass('menu-seleccionado'); 
+
+
+     
 
 
 
+  
+
+
+   
 
 
 });//DOMCOntentLoaded jquery

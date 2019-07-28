@@ -34,7 +34,6 @@
   <script src="js/jquery.lettering-0.6.1.min.js"></script>
 
   <?php
-
     $archivo = basename($_SERVER['PHP_SELF']);
     $pagina = str_replace(".php", "", $archivo); 
     if($pagina == 'conferencia'){
@@ -44,8 +43,8 @@
     }
     elseif ($pagina == 'index') {
       echo '<script src="js/jquery.colorbox.js"></script>';
+      echo '<script src="js/jquery.waypoints.min.js"></script>';
     }
-
   ?> 
 
   <script src="js/jquery.countdown.min.js"></script>

@@ -12,4 +12,4 @@ try {
 
 
 
-//el nombre de usario y contraseña se deben escribir por sepadaro 
+//el nombre de usario y contraseña se deben escribir por separado 

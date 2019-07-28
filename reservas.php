@@ -3,7 +3,7 @@
 
     <h2 class="centrar-texto section-h2">Registro de Usuarios</h2>
 
-    <form id="registro" action="" method="POST">
+    <form id="registro" action="validar_formulario.php" method="POST">
 
         <div class="registro caja container seccion">
 
@@ -39,7 +39,7 @@
         <p class="parrafo-precio"><i class="fas fa-check"></i> TODOS LOS TALLERES</p>
         <div class="orden">
           <label for="paseDia">Boletos:</label>
-          <input type="number" name="paseDia" id="paseDia" min="1" placeholder="1">
+          <input type="number" name="pases[]" id="paseDia" min="1" placeholder="1">
         </div>
       </div> 
       <div class="precio"> 
@@ -50,7 +50,7 @@
         <p class="parrafo-precio"><i class="fas fa-check"></i> TODOS LOS TALLERES</p>
         <div class="orden">
             <label for="paseCompleto">Boletos:</label>
-            <input type="number" name="paseCompleto" id="paseCompleto" min="1" placeholder="1">
+            <input type="number" name="pases[]" id="paseCompleto" min="1" placeholder="1">
           </div>
       </div>
       <div class="precio">
@@ -61,7 +61,7 @@
         <p class="parrafo-precio"><i class="fas fa-check"></i> TODOS LOS TALLERES</p>
         <div class="orden">
             <label for="paseDos">Boletos:</label>
-            <input type="number" name="paseDos" id="paseDos" min="1" placeholder="1">
+            <input type="number" name="pases[]" id="paseDos" min="1" placeholder="1">
           </div>
       </div>
     </div>
@@ -153,19 +153,19 @@
             <div class="campo-regalo">
                 <div class="campo-resumen">
                     <label for="camisaEvento">Camisa del Evento $10</label>
-                    <input type="number" name="camisa evento" id="camisaEvento" min="1" placeholder="0">
+                    <input type="number" name="camisaevento" id="camisaEvento" min="1" placeholder="0">
                 </div>
                 <div class="campo-resumen">
                     <label for="eventoEtiqueta">Paquete 10 Etiquetas $2</label>
-                    <input type="number" name="evento etiqueta" id="eventoEtiqueta" min="1" placeholder="0">
+                    <input type="number" name="eventoetiqueta" id="eventoEtiqueta" min="1" placeholder="0">
                 </div>
                 <div class="campo-resumen">
                     <label for="regalo">Selecciona tu Regalo</label>
                     <select name="regalo" id="regalo">
                         <option disabled value="" selected>--Selecciona un regalo--</option>
-                        <option value="eti">Etiquetas</option>
-                        <option value="pul">Pulseras</option>
-                        <option value="Plu">Plumas</option>
+                        <option value="1">Etiquetas</option>
+                        <option value="2">Pulseras</option>
+                        <option value="3">Plumas</option>
                     </select>
                 </div>
                 <input type="button" value="Calcular" id="calcular" class="btn">
@@ -184,7 +184,9 @@
                     </div>
             
                 </div>
-                <input type="submit" value="Pagar" class="btn" id="btnRegistro">
+
+                <input type="hidden" name="totalPagado" id="totalPagado">
+                <input type="submit" value="Pagar" name="submit" class="btn" id="btnRegistro">
             </div>
             </div>
         <!--contenedor resumen-->

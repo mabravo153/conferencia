@@ -27,11 +27,33 @@
         <div class="programa-evento seccion">
           <h2 class=" centrar-texto section-h2">Programa del evento</h2>
 
+          <?php 
+
+          try {
+            include_once 'php/funtions/bd_con.php';
+
+            $pdo->beginTransaction();
+
+            $consulta = $pdo->prepare('SELECT nombreEvento, icono FROM categoriaeventos');
+            $consulta->execute();
+            $pdo->commit();
+          } catch (\Exception $th) {
+            $pdo->rollBack();
+            echo  "Error!!" . " " . $th->getMessage();
+          }
+          ?>
+
           <nav class="menu-progama">
-            <a href="#talleres"><i class="fas fa-code"></i> Talleres </a>
-            <a href="#conferencias"><i class="fas fa-comments"></i> Conferencias</a>
-            <a href="#seminarios"><i class="fas fa-university"></i> Seminarios</a>
+            <?php 
+              while ($menu = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+                
+                <a href="#<?php echo $menu['nombreEvento'] ?>"><i class="fas <?php echo $menu['icono'] ?>"></i> <?php echo $menu['nombreEvento'] ?> </a>
+
+               <?php } ?>
+           
           </nav>
+
           <div class="contenedor-eventos">
             <div id="talleres" class="info-curso ocultar">
               <div class="detalle-evento">
@@ -95,19 +117,19 @@
   <div class="contador parallax">
     <div class="container contenedor-contador">
       <div class="contenido-contador">
-        <p class="numero-contador" id="numeroUno"></p>
+        <p class="numero-contador" id="numeroUno">0</p>
         <p>Invitados</p>
       </div>
       <div class="contenido-contador">
-        <p class="numero-contador" id="numeroDos"></p>
+        <p class="numero-contador" id="numeroDos">0</p>
         <p>Talleres</p>
       </div>
       <div class="contenido-contador">
-        <p class="numero-contador" id="numeroTres"></p>
+        <p class="numero-contador" id="numeroTres">0</p>
         <p>Dias</p>
       </div>
       <div class="contenido-contador">
-        <p class="numero-contador" id="numeroCuatro"></p>
+        <p class="numero-contador" id="numeroCuatro">0</p>
         <p>Conferencias</p>
       </div>
     </div>
