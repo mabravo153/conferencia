@@ -489,7 +489,6 @@ template string, al porner ${this.nombre de la llave dentro del objeto}
 //es necesario saber en que orden se ponen los parametros. ya que de esa manera se imprimiran
 
 
-
 //iife 
 
 //son funciones que se invocan automaticamente, su sintaxis es la siguiente
@@ -627,34 +626,6 @@ por ejemplo 'llave' in casa siempre debe estar en comillas
 //const tarea1 = new Tarea('aprender js');
 
 //console.log(tarea1);
-
-
-
-
-
-
-//FECHAS
-//para recibir la fecha debemos usar el metodo Date()
-//no es un tipo de dato date sino de objeto 
-
-//const diaHoy = new Date();
-
-
-//let valor = diaHoy;
-
-//valor = diaHoy.getMonth();// me da el mes empezando desde enero como 0 
-//valor = diaHoy.getDay(); //me da el dia de la semana en numero tomando el domingo como 0
-
-//valor = diaHoy.getFullYear();// me da el año actual 
-
-//console.log(valor);
-
-
-//tambien puedes usar set para sobreescribir un valor 
-
-
-
-
 
 
 
@@ -1100,6 +1071,340 @@ este es un ejemplo de lo que podemos encotrar en la vida real
 acerca de conformar o no, por ejemplo. si el usuario quiere enviar un formulario 
 o no 
 */
+
+
+
+/* 
+
+MAP en javasecript 
+
+en js podemos hacer otro tipo de estructura de datos, diferente a array u objetos. esta estructura se llama map. la principal diferencia entre los otros es que se puede 
+crear llaves de cualquier valor, no como en el caso de los objetos, que son strings 
+
+
+para hacer un map lo hacemos usando la palabra reservada new y Map 
+
+let nuevoMap = new Map(); de esta manera se crea un map, para insertarle datos tenemos dos manera de hacxerlo 
+al momento de crearlos podemos abrir llaves, e inserta rlos datos de esta manera 
+
+let nuevoMap = new Map([
+
+  ['llave', valor]
+
+])
+o lo podemos hacer usando el metodo de set. nuevoMap.set('llave', valor);
+tambien tenemos otros metodos que podemos usar 
+
+map.get(key) : devuelve el valor de la clave, undefined si la key no existe en el mapa.
+map.has(key) : devuelve true si la key existe, false contrario.
+map.delete(key) : elimina el valor mediante la clave.
+map.clear() : elimina todo del mapa.
+map.size : devuelve el recuento de elementos actual. 
+
+con map podemos hacer que una llave sea un objeto, de igual manera podemos crear a partir de un objeto simple, un mao, usando un metodo incorporado llamado 
+Object.retries(objeto);
+
+let objeto = {
+    Nombre: 'miguel',
+    Apellido: 'bravo'
+}
+
+
+let variable = new Map(Object.entries(objeto));    esto nos retorna un map, el cual podemos recorrer con un for of o un forEach 
+
+si queremos volver un map a un objeto simple. tenemos el metodo Object.fromEntries(map)
+
+let objetoNuevo = Object.fromEntries(variable);
+
+
+un map podemos recorrerlo con un for off o con un foreach 
+
+con un for of tenemos tres metodos.... map.values() lo cual nos retorna el valor, map.keys() esto nos retorna la llave del mismo 
+o el entries que nos debuelve todo. pero este es el que se usa por defecto en for of 
+
+let arrayMap = new Map([
+      ['nombre', 'miguel'],
+      ['apellido', 'bravo'],
+      ['documento', 1143144126]
+    ])
+    
+    for (let variable of arrayMap) {
+      console.log(variable);
+    
+    usando el for, si no especificamos que queremos retirnar. este nos retornara el valor como un array, con su llave y el valo en un array.
+     a simple vista no hay ninguna diferencia entre usar un for o foreach para recorrer un map. pero el foreach te permite savar la llave y el valor al tiempo 
+     podiendo usarlas sin restricion 
+
+
+con map tambien tenemos un foreach, 
+
+  let map = new Map([
+      ['Nombre', 'armando'],
+      ['Apellido', 'paredes']
+    ])
+
+    let map2 = new Map();
+    map2.set('Nombre', 'armando')
+        .set('Apellido', 'casas');
+
+
+    for (let valor1 of map.values()) {
+      console.log(valor1);
+    }
+
+    map.forEach((key, value, map) => console.log(`${key}: ${value}`)
+    )
+
+
+
+en js tenemos tambien otro metodo de almacenar valores. este metodo se llama Set
+este es un conjunto sin claves. estos son sus principales metodos 
+
+new Set(iterable) : crea el conjunto y, si se proporciona un objeto iterable (generalmente una matriz), copia los valores del mismo en el conjunto.
+set.add(value) : agrega un valor, devuelve el conjunto en sí.
+set.delete(value) : elimina el valor, devuelve true si el value existía en el momento de la llamada, de lo contrario es false .
+set.has(value) : devuelve true si el valor existe en el conjunto; de lo contrario, es false .
+set.clear() : elimina todo del conjunto.
+set.size : es el recuento de elementos. 
+
+La alternativa a Set podría ser una matriz de usuarios y el código para verificar si hay duplicados en cada inserción usando arr.find . Pero el rendimiento sería mucho peor, porque este método recorre la matriz completa comprobando cada elemento. Set está mucho mejor optimizado internamente para verificaciones de unicidad.
+
+una caracteristica de este metodo para agrupar valores es que no permite valores repetidos y al no usar claves como en el caso de map. se pueden agregar con 
+add 
+
+para iterar en set. podemos usar el mismo for of. o el forEach 
+
+al abrirlos en llaves nos permite agregar los valores de una vez
+let set = new Set(['naranja', 'mandarina', 'curuba']);
+
+for(let sets of set){
+  alert(sets)
+}
+
+set.forEach((values,revalue, set) => alert(values));
+
+
+WeakMap y WeakSet
+
+
+basicament son lo mismo que map y set. con la diferencia que estos permiten que el recolector de basura del motod de js. elimine los elemento que estan en el 
+
+otra de las diferencias por ejemplo de map y weakmap. es que este ultimo, solo recibe objetos como llaves 
+
+WeakMap no admite la iteración y las keys() métodos keys() , values() , entries() , por lo que no hay forma de obtener todas las claves o valores de él.
+
+WeakMap solo tiene los siguientes métodos:
+
+    weakMap.get(key)
+    weakMap.set(key, value)
+    weakMap.delete(key)
+    weakMap.has(key)
+
+
+OBJECT.KEY, VALUES, ENTRIES
+
+Para objetos simples, están disponibles los siguientes métodos:
+
+    Object.keys (obj) : devuelve una matriz de claves.
+    Object.values ​​(obj) : devuelve una matriz de valores.
+    Object.entries (obj) : devuelve una matriz de pares [key, value] . 
+
+Tenga en cuenta las distinciones (en comparación con el mapa, por ejemplo):
+	Mapa 	Objeto
+Sintaxis de llamada 	map.keys() 	Object.keys(obj) , pero no obj.keys()
+Devoluciones 	iterable 	Matriz "real"
+
+La primera diferencia es que tenemos que llamar a Object.keys(obj) y no a obj.keys() .
+
+¿Porque? La razón principal es la flexibilidad. Recuerde, los objetos son una base de todas las estructuras complejas en JavaScript. Por lo tanto, podemos tener un objeto de data propios que implemente su propio método data.values() . Y todavía podemos llamar a Object.values(data) en él.
+
+La segunda diferencia es que los métodos Object.* Devuelven objetos de matriz "reales", no solo un iterable. Eso es principalmente por razones históricas. 
+
+
+TRANFORMANDO OBJETOS
+
+en js podemos tranformar objetos en un array con un metodo que nos brinda el lenguaje 
+
+si queremos solo las valores del objeto, debemos usar Object.values() esto nos retorna una matriz con estos. 
+si queremos solo las llaves podemos usar Object.keys() esto nos retornara las llaves
+
+para poder convertirlos en una matriz de par/valor se usa Object.entries(objeto)
+
+y para retornarlo a un objeto nuevamente. debemos usar Object.fromEntries(); 
+
+
+
+
+ASIGNACION DE DESESTRUCTURACION 
+
+esto lo hacemos con el fin de añadir los valores a una variable. debemos investigarlo mas 
+
+
+FECHA Y HORA 
+
+js tiene un nuevo objeto incorporado. este se llama fecha 
+almacena la fecha y la hora. ademas nos proporciona metodos para la gestion de la misma, lo podemos suar para almacenar la fecha de creacion, modificacion o 
+mostrar la fecha actual 
+
+para crearlo usarmos la palabra reservada Date 
+
+let fecha = new Date();
+
+eso nos retorna: Sun Aug 04 2019 20:50:43 GMT-0500 (hora estándar de Colombia)
+
+new Date(datestring)
+
+si lo hacemos de esta manera, agregando un atring como parametro  
+
+let fechaActual = new Date("2019-01-14")
+esto nos retorna:  sun Jan 13 2019 19:00:00 GMT-0500 (hora estándar de Colombia)
+
+
+
+tambien podemos crear la fecha y hora que nosotros estemos dispuesto lo podemos hacer de la siguiente manera 
+
+let fechaPropia = new Date(year, month, date, hora, minutos, segundos, ms)
+
+el año debe tener 4 digitos
+el mes. empieza desde 0(enero) 
+date es la fecha, el dia de mes. por defecto es 1
+si las horas, minutos, segundos, y ms. si no hay algun valor por defecto seran 0
+
+valor = diaHoy.getFullYear();   me da el año actual con 4 digitos 
+valor = diaHoy.getMonth(); me da el mes empezando desde enero como 0 
+valor = diaHoy.getDay();  me da el dia de la semana en numero tomando el domingo como 0
+let dia =  pruebaFecha.getDate(); esto nos retorna el dia del mes. 
+getHours() retornar a hora
+getMinutes() retornar los minutos
+getSeconds() retornar los segundos 
+getms() retornar milisegundos 
+
+estos metodos nos retornan la zona horaria local. so queremos acceder a la zona horaria podemos usar 
+UTC +0
+
+getUTCFullYear()
+
+tambien puedes usar set para sobreescribir un valor 
+
+getTimezoneOffset()
+esto nos devuelve la difetencia entre la zona horaria local y la UTC en minutos 
+
+
+
+SOBREESCRIBIR LA FECHA Y HORA 
+podemos usar el metodo set, este funciona para cada uno de los metodos anteriormente vistos 
+FullYear, este nos permite modificar el año, el mes y la fech..... pruebaFecha.setFullYear(1994,1,14);  
+month: si queremos cambiar el mes y el dia. lo podemos hacer con este metodo
+date 
+podemos hacer lo mismo con las horas, minutos y segundos 
+setHours() estos reciben como parametro, solo numeros 
+
+
+
+AUTOCORRECCION
+js tiene una caracteristica muy buena con el objeto Date(), los componentes fuera de rango se corrigen automaticamente 
+
+podemos tambien poner los valores en 0. si ponemos por ejemplo.
+
+let pruebaFecha = new Date(); esto nos retorna la fecha actual
+ 
+pruebaFecha.setFullYear(1994,0,1); con esto modificamos la fecha. la volvemos el 1 de febrero de 1994
+
+console.log(pruebaFecha);
+
+pruebaFecha.setDate(0); el 0 no existe en los dias, esto hara que la fecha sea inmediatamente anterior, ya no es 01/01/1994, si no 12/31/1993
+
+console.log(pruebaFecha);
+
+
+
+esto nos sirve para tener el valor de la diferencia que hay entre UTC 0 y la zona horaria local 
+ alert( new Date().getTimezoneOffset())
+
+
+ 
+FECHA A NUMERO 
+
+Cuando un objeto Date se convierte en número, se convierte en la marca de tiempo igual que date.getTime()
+
+El efecto secundario importante: las fechas se pueden restar, el resultado es su diferencia en ms.
+
+Eso se puede usar para mediciones de tiempo
+
+
+
+Date.now ()
+
+Si solo queremos medir el tiempo, no necesitamos el objeto Date .
+
+Hay un método especial Date.now() que devuelve la marca de tiempo actual.
+
+Es semánticamente equivalente a new Date().getTime() , pero no crea un objeto Date intermedio. Por lo tanto, es más rápido y no ejerce presión sobre la recolección de basura.
+
+Se usa principalmente por conveniencia o cuando el rendimiento es importante, como en juegos en JavaScript u otras aplicaciones especializadas. 
+
+
+let varaible = Date.now(). esto lo podemos usar si queremos ver el tiempo que tarda cierta determinada parte del codigo sin crear un objeto 
+
+
+
+El método Date.parse (str) puede leer una fecha de una cadena.
+
+El formato de cadena debe ser: YYYY-MM-DDTHH:mm:ss.sssZ , donde:
+
+    YYYY-MM-DD : es la fecha: año-mes-día.
+    El carácter "T" se utiliza como delimitador.
+    HH:mm:ss.sss : es el tiempo: horas, minutos, segundos y milisegundos.
+    La parte opcional 'Z' denota la zona horaria en el formato +-hh:mm . Una sola letra Z que significaría UTC + 0. 
+
+También son posibles variantes más cortas, como YYYY-MM-DD o YYYY-MM o incluso YYYY .
+
+La llamada a Date.parse(str) analiza la cadena en el formato dado y devuelve la marca de tiempo (número de milisegundos desde el 1 de enero de 1970 UTC + 0). Si el formato no es válido, devuelve NaN
+
+ejemlo de ua funcion que retorna los dias 
+
+function diaAntes(arg, days) {
+    
+    arg.setDate(arg.getDate() - days);
+
+
+    return arg.getDate();
+}
+ 
+console.log(
+ diaAntes(new Date(), 5));
+
+
+
+
+
+METODOS PARA TRABAJAR CON JSON EN JS 
+
+JSON.stringify para convertir objetos en JSON.
+JSON.parse para convertir JSON nuevamente en un objeto. 
+
+JSON.stringify se puede aplicar a primitivas.
+
+JSON admite los siguientes tipos de datos:
+
+    Objetos { ... }
+    Arreglos [ ... ]
+    Primitivas:
+        instrumentos de cuerda,
+        números,
+        valores booleanos true/false ,
+        null 
+
+
+JSON es una especificación de lenguaje independiente de datos, por lo que JSON.stringify omite algunas propiedades de objeto específicas de JSON.stringify .
+
+A saber:
+
+    Propiedades de la función (métodos).
+    Propiedades simbólicas.
+    Propiedades que almacenan undefined . 
+
+*/ 
 
 
 
@@ -2138,6 +2443,8 @@ si modificamos a, tambien se modifica b. aunque esta practica no es muy comun
 
 
 FORZADO DE UNA VARIABLE
+
+cambio de una variable o dato
 cambiar el valor de una variable no siempre es aconsejable ya que posiblemente lleguemos a un punto 
 en el que no sabremos que dato tiene y podra ocasionar un error al momento de ejecutarse 
 para evitar eso, eb php podemos forzar una variable a un tipo en contreto 
@@ -3220,9 +3527,23 @@ https://www.php.net/manual/es/pdo.transactions.php este link es super util al mo
 
 
 siempre que se debe hacer es crear la conexion: esto lo hacemos on includes_once o con require 
-escribir la consulta creamos una variable y la preparamos con prepare
-realizar la consulta la ejecutamos con execute 
+escribir la consulta creamos una variable y la preparamos con prepare. esto optimiza la ejecucion de los query y evita ataques de sql inyection 
+realizar la consulta la ejecutamos con execute. esto ejecuta lo que tenemos preparado
 e imprimiarla la imprimimos de esta manera   $resultado = $sql->fetch(PDO::FETCH_ASSOC); 
+
+
+si vamos a insertar datos en la base de datos tenemos que hacerlo agregando un metodo antes del execute()
+el metodo llamado bindParam()
+ Vincula un parámetro al nombre de variable especificado 
+
+ podemos encontrar mas info aqui https://www.php.net/manual/es/pdostatement.bindparam.php 
+ $insertar = $pdo->prepare("INSERT INTO registrousuario (nombreUsuario, apellidoUsuario, emailUsuario, fechaRegistro, pasesArticulos, talleresRegistrados, fk_regalo, totalPago )
+                                        VALUES (?,?,?,?,?,?,?,?) ");
+$insertar->bindParam("sssssssis");
+  
+este es un ejemplo, los signos de interrogacion en el values, reemplazan los parametros. en bindParam las s son string y la i es un entero, luego de las "" ingresamos las variables separadas por comas 
+
+
 
 podemos cerrar la conexion a la base de datos o manetener una conexion persistentente. al almacenarla en cache se evita que se cree una conexion a la 
 base de datos por lo cual la aplicacion es mas rapido
@@ -3380,9 +3701,141 @@ y uno ya hecho por nosotros. ahora haremos un ejemplo para entenderlo mejor.
 array_combine — Crea un nuevo array, usando una matriz para las claves y otra para sus valores 
 este metodo lo que hace es crear un array array_combine($arrayuno = llaves, $arraydos= valores);
 
-siempre que trabajetemos con json_encode. debemos psarle un array por lo que es indispensable crearlo 
+siempre que trabajetemos con json_encode. debemos psarle un array por lo que es indispensable
 
 
+para evitar una reinsercion de los mismos datos. debemos poner el codigo de validacion e incercion en la parte de arriba del documento. 
+usamos un metodo llamado header(); el cual nos permite redirigir hacia una locacion diferente e igual, esto evitara que el usuario pueda recargar a pagina y reinsertar los dtos 
+
+
+USAR UN NEWSLETTER 
+
+podemos usar un servicio llamado mailchimp para usar un servicio de mensajeria 
+
+https://mailchimp.com/
+
+solo debemos crear una cuena y ecrear un formato 
+
+
+
+
+
+
+            AJAX
+
+esto no solo nos permite transportar xml, nos permite tranportar json y texto plano. permite al navegador enviar informacion sin recargar
+
+uno de los beneficios de usar ajax, es que el consumo de datos es mucho menor., el volumen de tranferencia de datos es mucho menor 
+
+
+actualizar una parte del sitio, sin actualizar la pagina completamente. te ayuda a solicitar informacion al servidor. recibir y enviar, no es un lenguaje como tal 
+es una combinacion de varias tecnologias
+
+XmlHttpRequest gracias a este objeto es posible actualizar distintas paginas del sitio sin recargar 
+el objeto intercambia informacon en el background
+
+trabajar con ajax es como trabajar con js. se crea de la misma manera qu una varaible 
+pero el valor que se le pasa es 
+let varariableAjax = new XmlHttpRequest();
+metodos disponibles, new crea un request
+abort cancela el request 
+getallresponseheaders retorna informacion del header 
+open abre la conexion... recibe tres parametros. post o get, la url del archivo al que te quieres comunicar por ultimo esta , si queremos que sea sincrono y asincrono 
+send envia el request al servidor 
+sedrequestheader, agregar valores al header que se quire enviar 
+
+cuando se trabaja con formularior es requerido siempre se debe usar 
+setRequestHreader()
+
+
+luego de instanciar el objeto, con oopen hacemos algo similar a un prepare en php, y send en este caso envia lo que hemos realizado como en el caso de execute 
+
+SIEMPRE DEBEMOS ESCRIBIT EL METODO (POST, GET) EN MAYUSCULAS 
+
+
+
+PROPIEDADES o estados DE XmlHttpRequest
+
+readystate nos dira el estado en que se encuetra la peticion del objeto, existen tres estados definidos por numeros 
+0 = request sin iniciar  en este punto no hemos hecho open 
+1 = conexion establecida 
+2 = request recibido 
+3  = procesando el request 
+4 = request finalizado y la respuesta esta lista 
+
+tambien tenemos uno llamado onreadystatechange, esta sera llamada cuando el estado cambie 
+
+responseText. nos traera una respuesta en texto
+
+responseXml, retorna una respuesta en XML 
+
+status retorna el estado del request 
+si el status es 200 todo esta bien 
+404 es documento inexistente o no encontrado
+500 es un error en el servidor 
+
+CARGAR UN ARCHVO EXTERNO CON AJAX 
+
+
+lo podemos hacer de muchas formas diferentes, segun lo necesitemos. n el ejemplo queremos que el codigo de ajax se ejecute al cliquear en un boton 
+por lo cual usamos un addEventListener 
+
+
+dentro e la funcion de EventeListener debemos incializar la variuable de XmlHttpRequest
+luego de eso viene el open, ya que estamos trayendo indo desde un lugar externo, lo recomendable es usar get. este debe estar entre comillas. seguido a eso 
+debemos poner el nombre del archvo del cua traemos esa info, seguido a eso debemos especificar si queremos que sea asincrono o no 
+
+
+para hacer uso de Ajax, debemos seguir una serie de pasos. primero debemos crear una instancia del objeto XmlHttpRequest()
+
+let xhr = new XMLHttpRequest();
+
+seguido a eso, debemos abrir la conexion con el metodo open(), como escribimos anteriormente este recibe tres parametros. 
+
+xhr.open("GET","contenido.txt", true);
+
+luego de esto, debemos crear una funcion onreadystatechange, esta funcion se ejecuta cada vez que hay algun cambio por eso en el ejemplo no la llamamos
+como esta arriba, 
+
+xhr.onreadystatechange = function () {
+        
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            contenedor.innerHTML = xhr.responseText
+        }
+
+    }
+  
+en este caso estamos llamando un documento txt e imprimimos el resultado con el innethtml 
+
+luego de eso debemos 
+
+
+var btnCargar = document.getElementById('cargar');
+
+function cargarContenido() {
+  // crearlo
+  var xhr = new XMLHttpRequest();
+
+  // abrirlo
+   xhr.open("GET", "texto_prueba.txt", true);
+   
+   // revisar que cambie
+   xhr.onreadystatechange = function() {
+      //console.log(xhr.readyState);
+      
+      if(xhr.readyState == 4 && xhr.status == 200) {
+          //console.log("Se cargo correctamente");
+          
+          var contenido = document.getElementById('contenido');
+          contenido.innerHTML = xhr.responseText;
+      } 
+   };
+
+   xhr.send(); 
+}
+
+btnCargar.addEventListener('click', cargarContenido );
+              
 
 
 */

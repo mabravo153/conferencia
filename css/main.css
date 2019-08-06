@@ -1067,6 +1067,21 @@ time{
     padding: 2rem;
 }
 
+
+/*CONFIRMACION */ 
+
+.registro-exito{
+    border: 0.3rem solid rgb(124, 206, 37);
+    background-color: #B8FF6F;
+    color: #75CC1C; 
+}
+
+.texto-exito{
+    padding: 2rem 0;
+
+}
+
+
  /* ==========================================================================
    Helper classes
    ========================================================================== */

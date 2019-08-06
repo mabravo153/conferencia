@@ -285,7 +285,7 @@ $(function() {
     let animacion = $('.contenedor-contador');
     if(animacion.length > 0){
 
-      let numero1 = new Waypoint({
+      let numero1 = new Waypoint({//eso es una funcion que ejecuta un evento cuando nosotros lo deseemos al hacer scroll 
 
         element: $('#numeroUno'),
         handler: function (){
@@ -376,9 +376,9 @@ $(function() {
     
     $(window).scroll(function () {
 
-        let scrollD = window.pageYOffset;
-        let altoVentana = document.documentElement.clientHeight;
-        let altoBarra = $('.barra').innerHeight();
+        let scrollD = window.pageYOffset; //medimos el scroll 
+        let altoVentana = document.documentElement.clientHeight; //medimos el alto de la ventana
+        let altoBarra = $('.barra').innerHeight(); //tamaño del contenedor 
         
         if (scrollD > altoVentana) {
             $('.barra').addClass('fixed');
@@ -398,7 +398,7 @@ $(function() {
 
    $('.menu-movil').click(function() {
         
-      if ($('.barra-navegacion').is(':hidden')) {
+      if ($('.barra-navegacion').is(':hidden')) { //de esta manera hacemos que si la barra esta oculta. haga esto 
           $('.barra-navegacion').slideDown(1200)
       } else {
         $('.barra-navegacion').slideUp(1200)
@@ -406,32 +406,24 @@ $(function() {
    })
      
 
+
    //ventana modal con descripcion del invitado 
 
-
-   
-  //de esta confirmamos que la variable exista  y sea mayor que 0
-  let test = $('.invitado-info')
+  let test = $('.invitado-info')   //de esta confirmamos que la variable exista  y sea mayor que 0
    if(test.length > 0){
-     $('.invitado-info').colorbox({inline:true, width: "70%" })
+     $('.invitado-info').colorbox({inline:true, width: "70%" }) //con este plugin, hacemos que se presente la info del invitado 
    }
        
 
    //indicar en que pagina estamos agregandole la clase seleccion
 
-   //lo hacemos de esta manera, ya que al usar un evento, al recargar, esto ocaciona que el evento pase y no se aplique la clase w
+   //lo hacemos de esta manera, ya que al usar un evento, al recargar, esto ocaciona que el evento pase y no se aplique la clase 
+   //constains es una manera de seleccionar algo que este dentro de la etiqueta a 
 
-   $('body.conferencia .barra-navegacion a:contains("Conferencia")').addClass('menu-seleccionado');
+    $('body.conferencia .barra-navegacion a:contains("Conferencia")').addClass('menu-seleccionado');
     $('body.calendario .barra-navegacion a:contains("Calendario")').addClass('menu-seleccionado');
     $('body.invitados .barra-navegacion a:contains("Invitados")').addClass('menu-seleccionado');
     $('body.reservas .barra-navegacion a:contains("Reservaciones")').addClass('menu-seleccionado'); 
-
-
-     
-
-
-
-  
 
 
    
