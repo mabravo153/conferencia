@@ -583,14 +583,6 @@ template string, al porner ${this.nombre de la llave dentro del objeto}
 //console.log(total);
  
 
-
-
-
-
-
-
-
-
 //OBJECTS CONSTRUCTOR Y THIS 
 //esta forma es muy similar al momento de crear objetos como en otros lenguajes 
 //el objeto se crea de una manera similar a una funcion, aunque debe tener la primera letra en mayuscula 
@@ -1404,6 +1396,9 @@ A saber:
     Propiedades simbólicas.
     Propiedades que almacenan undefined . 
 
+
+
+
 */ 
 
 
@@ -1779,6 +1774,19 @@ La sintaxis para agregar un manejador:
 
  element.addEventListener(event, handler[, options]); 
 
+un evento que podeimos usar en losinputs, es el evento input, este te reporta todo lo que escribes 
+
+  let buscador = document.querySelector('#buscar'); 
+
+        buscador.addEventListener('input', function(e) {
+            e.preventDefault();
+
+            console.log(e.target.value);
+            
+            
+        })
+
+        de esta manera nos lo imrpime en la consola 
 
   event
     Nombre del evento, por ejemplo, "click" . 
