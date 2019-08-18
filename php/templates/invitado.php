@@ -11,8 +11,7 @@
     include_once 'php/funtions/bd_con.php';
 
     try {
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+        
         $invitados = $pdo->prepare('SELECT idInvitado, nombreInvitado, apellidoInvitado, descripcionInvitado, urlImagen 
                                     FROM invitado ');
         $invitados->execute();

@@ -1340,6 +1340,7 @@ let varaible = Date.now(). esto lo podemos usar si queremos ver el tiempo que ta
 
 
 
+
 El método Date.parse (str) puede leer una fecha de una cadena.
 
 El formato de cadena debe ser: YYYY-MM-DDTHH:mm:ss.sssZ , donde:
