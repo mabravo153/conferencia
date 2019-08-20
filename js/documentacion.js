@@ -3847,9 +3847,120 @@ btnCargar.addEventListener('click', cargarContenido );
               
 
 
+
+
+USAR FUNCIONES HASH PARA ENCRIPTAR LA CONTRASEÑA
+
+en php tenemos una funcion para crear contraseñas hash y asi poder enviarlas a la base de datos 
+
+la funcion es password_hash
+ password_hash ( string $password , integer $algo [, array $options ] ) : string
+ esta es la forma en la cual se usa 
+
+ https://www.php.net/manual/es/function.password-hash.php aqui encontraremos toda la informacion 
+      $contrasena = hash('sha256', $contrasenaSana);// funcion para encriptar un string    
+
+          
+
+FUNCION PARA VALIDAR NOMBRE DE USUARIO Y CONTRASEÑA
+
+ if ($nombreUsuario) {
+                if (password_verify($contrasenaSana, $contra)) {//de esta manera verificamos si el password que ingresa el usuario es el que se encuentra en la base de datos 
+                    $resultadoLogin = array(
+                        'resultado' => 'password correcto',
+                        'usuario' => $idUsuario,
+                        'nombre' => $nombreUsuario,
+                        'contrasena' => $contra
+                    );
+                }else {
+                    $resultadoLogin = array(
+                        'resultado' => 'password incorrecto'
+                    );
+                }
+            }else {
+                $resultadoLogin = array(
+                    'resultado' => 'No existe ese nombre de usuario'
+                );
+            }
+
+
+
+
+
+SESIONES EN PHP 
+
+un sesion en php lo podemos usar para salvaguaradar que no se este accediendeo a informacion que no queramos 
+
+un ejemplo para validar que esto no se de es el siguiente 
+
+para inicializar una sesion debem,os usar el metodo session_star 
+
+<?php 
+
+function usuarioAutenticado(){
+    if (!revisarUsuario()) {
+        header ('Location: login.php');
+        exit();
+    }
+}
+
+function revisarUsuario(){
+   return isset ($_SESSION['nombreUsuario']);
+}
+
+session_start();
+usuarioAutenticado();
+
+?>
+
+
+al llamar este archivo, debemos asegurarnos que todo ete justo debajo de el. ya que no queremos que se muestr e
+algo que no deseamos 
+
+
+                session_start();
+                $_SESSION['nombre'] = $usuario;
+                $_SESSION['id'] = $idUsuario;
+                $_SESSION['login'] = true;
+
+adicional a eso debemos crear la sesion al momento de validar la contraseña y pasarle unos valores 
+si queremos tener los datos que esten dentro de la sesion es nec3esario inicializarla en esa pagin a
+  
+
+PASOS PARA REALIZAR UN LOGIN 
+
+debemos crear el usuario, hacer todo el codigo para hacerlo, debemos hashear la contrasena. eso lo hacemos usando 
+password_hash. 
+
+
+luego de eso debemos crear unna consulta, usar bindColum para asignar el valor de la columna a uan variable que crearemos en el momento
+debemos verificar si el nombre de usuario existe pasamos a validar si la contraseña es correcta con password_verify;
+adicional a todo. debemos realizar una funcion que. si el usuario escribre una de las paginas que estan bloqueadas, si no esta logueado. esta lo redirija al index 
+
+
+function usuarioAutenticado(){
+    if (!revisarUsuario()) {
+        header ('Location: login.php');
+        exit();
+    }
+}
+
+function revisarUsuario(){
+   return isset ($_SESSION['nombreUsuario']);
+}
+
+session_start();
+usuarioAutenticado();
+
+?>
+ de esta manera 
+en caso de ser correcto, creamos una sesion y pasamos los parametros que queramos.
+
+para bloquear las paginas que no queramos que sean vistas antes de cargar el html. agregamos sesion star
+
+para poder cerrar la sesion, debemos obviamente agregr un boton de cerrar, y que este envie una variable. que en caso de existir, elimine todas las variables. de esta manera cerramos la sesion 
+
+
+
+
 */
- 
-
-
-
-
