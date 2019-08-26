@@ -2996,6 +2996,7 @@ la diferencia fundamental entre las dos es que si llamamos un archivo con requer
 nos arrojara un error fatal, en cambio con include esto no sucedera, solo nos arrojara una advertencia 
 usan de la siguiente manera 
 
+si usamos incluce_once nos dara un error, ya que esta no nos permitira aregar otra conexion 
 
 include("nombre_php.php");
 
